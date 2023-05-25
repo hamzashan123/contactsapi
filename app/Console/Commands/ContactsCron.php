@@ -27,9 +27,11 @@ class ContactsCron extends Command
      */
     public function handle()
     {
+        $lastcount = DB::table('contacts')->count();
+       
         $response = Http::get('https://api.opentoclose.com/v1/contacts', [
             'api_token' => 'V0kwamxiSXU3dFA5MHFqOGFxd3pGZz09OkduWEdCcGVDalBuUUVqalRrZXFndExEZEo0TDNQQVlTOmNkYjgzYmZkMzljM2RmYTA2YjhiMTA2YzEyOTc5Yjc0MDZlM2QxODkwZWI0NzI3ZmIwOGExNmYyYzM5YjIwMDc=',
-            'offset' => 0,
+            'offset' => $lastcount,
             'limit' => 10,
         ]);
 
