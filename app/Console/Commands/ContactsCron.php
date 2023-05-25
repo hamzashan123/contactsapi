@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -78,7 +79,9 @@ class ContactsCron extends Command
                     "office_website" => $contact['office_website'],
                     "agent_license_number" => $contact['agent_license_number'],
                     "office_license_number" => $contact['office_license_number'],
-                    "shared" => $contact['shared']
+                    "shared" => $contact['shared'],
+                    "created_at" => Carbon::now(),
+                    "updated_at" => Carbon::now()
                 ]);
             }
            

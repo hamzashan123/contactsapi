@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -50,11 +51,13 @@ class PropertyCron extends Command
                                                 
                                 DB::table('properties')->insert([
                                     "property_id" => $item['id'],
-                                    "field_id" => $field['id'],
-                                    "value" => $field['value'],
-                                    "type" => $field['type'],
+                                    // "field_id" => $field['id'],
+                                    // "value" => $field['value'],
+                                    // "type" => $field['type'],
                                     "label" => $field['label'],
-                                    "key" => $field['key'],
+                                    // "key" => $field['key'],
+                                    "created_at" => Carbon::now(),
+                                    "updated_at" => Carbon::now()
                                 ]);
                             }
                     }

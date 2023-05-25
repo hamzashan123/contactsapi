@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -98,11 +99,13 @@ class ApiController extends Controller
                                                 
                                 DB::table('properties')->insert([
                                     "property_id" => $item['id'],
-                                    "field_id" => $field['id'],
-                                    "value" => $field['value'],
-                                    "type" => $field['type'],
+                                    // "field_id" => $field['id'],
+                                    // "value" => $field['value'],
+                                    //"type" => $field['type'],
                                     "label" => $field['label'],
-                                    "key" => $field['key'],
+                                    //"key" => $field['key'],
+                                    "created_at" => Carbon::now(),
+                                    "updated_at" => Carbon::now()
                                 ]);
                             }
                     }
