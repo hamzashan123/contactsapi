@@ -51,11 +51,7 @@ class PropertyCron extends Command
                                                 
                                 DB::table('properties')->insert([
                                     "property_id" => $item['id'],
-                                    // "field_id" => $field['id'],
-                                    // "value" => $field['value'],
-                                    // "type" => $field['type'],
                                     "label" => $field['label'],
-                                    // "key" => $field['key'],
                                     "created_at" => Carbon::now(),
                                     "updated_at" => Carbon::now()
                                 ]);
